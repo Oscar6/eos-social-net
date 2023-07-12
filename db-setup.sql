@@ -6,6 +6,7 @@ CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   name VARCHAR(100),
   email VARCHAR(191)
+  password TEXT
 );
 
 -- Creating posts table

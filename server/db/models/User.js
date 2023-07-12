@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../index');
 
-const User = sequelize.define('User', {
+const User = sequelize.define('users', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -18,7 +18,13 @@ const User = sequelize.define('User', {
     validate: {
       isEmail: true,
     },
-  }
+  },
+  password: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+}, {
+  timestamps: false,
 });
 
 module.exports = User;
