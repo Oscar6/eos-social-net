@@ -49,20 +49,20 @@ Currently user can Register, Login, and make posts. The correct user_id is assoc
 
 ### TO DO
 5 - With the posts, you need to implement a simple CRUD with some requirements: 
-    a. Only the owner of the post can edit or delete the posts;
-    b. Allow adding an image to the post;
-    c. Save edits as a history;
-    d. Include a view counter for the posts;
-    e. Include a counter for likes and dislikes on the posts;
+    - a. Only the owner of the post can edit or delete the posts;
+    - b. Allow adding an image to the post;
+    - c. Save edits as a history;
+    - d. Include a view counter for the posts;
+    - e. Include a counter for likes and dislikes on the posts;
 
 6 - With the comments, you need to implement a simple CRUD with some requirements:
-    a. Only the owner of the comment can edit the comment;
-    b. The user who made the comment can remove it;
-    c. The owner of the post can also remove the comment;
-    d. Add a marker to indicate if the comment was removed by the user or the owner of the post;
-    e. Send an email to the owner of the post notifying them of a new comment on their post;
+    - a. Only the owner of the comment can edit the comment;
+    - b. The user who made the comment can remove it;
+    - c. The owner of the post can also remove the comment;
+    - d. Add a marker to indicate if the comment was removed by the user or the owner of the post;
+    - e. Send an email to the owner of the post notifying them of a new comment on their post;
 
 7 - Create a route that generates a report containing the posts with the following fields: a. Title;
-    b. Number of comments; c. Number of views;
-    d. Number of likes;
-    e. Number of dislikes.
+    - b. Number of comments; c. Number of views;
+    - d. Number of likes;
+    - e. Number of dislikes.
