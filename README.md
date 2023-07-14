@@ -8,28 +8,31 @@ Used PERN stack to simplify the backend allowing me to create a full stack appli
 Run `psql -U username -d myDataBase -a -f db-setup.sql` to create database or create database within PGAdmin
 
 ## Packages used
-`dependencies": {
+```
+dependencies": {
     "axios": "^1.4.0",
     "concurrently": "^8.2.0",
-        - concurrently is used to start application and server concurrently within the same terminal and one command
+    - concurrently is used to start application and server concurrently within the same terminal and one command
     "multer": "^1.4.5-lts.1",
-        - allows for media uploads
+    - allows for media uploads
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.1",
     "react-scripts": "5.0.1"
-  }`
+  }
+  ```
 
 Server dependencies
-`dependencies": {
+```dependencies": {
     "bcrypt": "^5.1.0",
-        - encrypts text such as passwords
+    - encrypts text such as passwords
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "pg": "^8.11.1",
     "sequelize": "^6.32.1"
-        - allows for data manipulation and validation
-  }`
+    - allows for data manipulation and validation
+  }
+```
 
 ### Setting up frontend
 
