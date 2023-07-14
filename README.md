@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# EOS Social Network
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Built in PERN stack (PostgreSQL, Express, React, and Node)
+Used PERN stack to simplify the backend allowing me to create a full stack application.
 
-## Available Scripts
+## Install PostgreSQL and clone project
+Run `psql -U username -d myDataBase -a -f db-setup.sql` to create database or create database within PGAdmin
 
-In the project directory, you can run:
+## Packages used\
+dependencies": {
+    "axios": "^1.4.0",
+    "concurrently": "^8.2.0",
+        - concurrently is used to start application and server concurrently within the same terminal and one command
+    "multer": "^1.4.5-lts.1",
+        - allows for media uploads
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.1",
+    "react-scripts": "5.0.1"
+  }
 
-### `npm start`
+Server dependencies
+dependencies": {
+    "bcrypt": "^5.1.0",
+        - encrypts text such as passwords
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "pg": "^8.11.1",
+    "sequelize": "^6.32.1"
+        - allows for data manipulation and validation
+  }
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Setting up frontend
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Navigate into project and run:\
+	`npm install`
+Run the same command in the server folder to install server dependencies
 
-### `npm test`
+To start app, run:\
+	`npm start`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+****** ****** ****** ****** ****** ****** ****** ******
+Currently user can Register, Login, and make posts. The correct user_id is associated with the user in database.
+****** ****** ****** ****** ****** ****** ****** ******
 
-### `npm run build`
+### TO DO
+5 - With the posts, you need to implement a simple CRUD with some requirements: 
+    a. Only the owner of the post can edit or delete the posts;
+    b. Allow adding an image to the post;
+    c. Save edits as a history;
+    d. Include a view counter for the posts;
+    e. Include a counter for likes and dislikes on the posts;
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+6 - With the comments, you need to implement a simple CRUD with some requirements:
+    a. Only the owner of the comment can edit the comment;
+    b. The user who made the comment can remove it;
+    c. The owner of the post can also remove the comment;
+    d. Add a marker to indicate if the comment was removed by the user or the owner of the post;
+    e. Send an email to the owner of the post notifying them of a new comment on their post;
+    
+7 - Create a route that generates a report containing the posts with the following fields: a. Title;
+    b. Number of comments; c. Number of views;
+    d. Number of likes;
+    e. Number of dislikes.

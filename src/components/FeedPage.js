@@ -1,26 +1,42 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const FeedPage = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [image, setImage] = useState(null);
+    const [posts, setPosts] = useState([]);
 
-    const handlePost = async () => {
+    const fetchPosts = async () => {
         try {
+            const response = await axios.get('http://localhost:3001/posts');
+            setPosts(response.data.posts);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    const handlePost = async (e) => {
+        e.preventDefault();
+
+        try {
+
+            const user_id = localStorage.getItem('user_id');
             const formData = new FormData();
             formData.append('title', title);
             formData.append('description', description);
             formData.append('image', image);
+            formData.append('user_id', user_id);
 
             const response = await axios.post('http://localhost:3001/posts', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
+                    'user_id': localStorage.getItem('user_id')
                 },
             });
 
             console.log(response.data);
-            // Handle successful post creation
+            fetchPosts();
 
         } catch (error) {
             console.error(error);
@@ -37,19 +53,38 @@ const FeedPage = () => {
         setImage(e.target.files[0]);
     };
 
+    useEffect(() => {
+        fetchPosts();
+    }, []);
+
     return (
         <div>
-            <h1>EOS Social Network</h1>
+            <div className='feed-header'>
+                <h1>EOS Social Network</h1>
+                <div className='post-button'>
+                    <button
+                        type="button"
+                        className="btn btn-primary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myModal"
+                    >
+                        Post
+                    </button>
+                </div>
+            </div>
+
             <p>Post Feed</p>
 
-            <button
-                type="button"
-                className="btn btn-primary"
-                data-bs-toggle="modal"
-                data-bs-target="#myModal"
-            >
-                Post
-            </button>
+            <div>
+                {/* Render the posts */}
+                {posts.map((post) => (
+                    <div key={post.id}>
+                        <h3>{post.title}</h3>
+                        <p>{post.description}</p>
+                        {post.image && <img src={`../${post.image}`} alt="Post Image" />}
+                    </div>
+                ))}
+            </div>
 
             <div className="modal fade" id='myModal' data-bs-backdrop="static">
                 <div className="modal-dialog">
@@ -64,7 +99,7 @@ const FeedPage = () => {
                             </button>
                         </div>
                         <div className="modal-body">
-                            <label onSubmit={handlePost}>
+                            <label>
                                 <div className="form-group">
                                     <label>Title:</label>
                                     <input
@@ -85,7 +120,21 @@ const FeedPage = () => {
                                         onChange={(e) => setDescription(e.target.value)}
                                     ></textarea>
                                 </div>
-                                <button type="submit" className="btn btn-primary">
+                                <div className="form-group">
+                                    <label htmlFor="image">Image:</label>
+                                    <input
+                                        type="file"
+                                        className="form-control"
+                                        id="image"
+                                        accept="image/*"
+                                        onChange={handleImageChange}
+                                    />
+                                </div>
+                                <button
+                                    type="submit"
+                                    data-bs-dismiss="modal"
+                                    className="btn btn-primary"
+                                    onClick={e => handlePost(e)}>
                                     Submit
                                 </button>
                             </label>

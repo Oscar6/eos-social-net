@@ -16,6 +16,8 @@ const LoginPage = () => {
             console.log(response.data);
 
             if (response.status === 200) {
+                const user_id = response.data.user_id;
+                localStorage.setItem('user_id', user_id);
                 navigate('/feed');
             } else {
                 setError(response.data.error);
@@ -27,8 +29,8 @@ const LoginPage = () => {
     };
 
     return (
-        <div>
-            <h1>Login</h1>
+        <div className='login-page'>
+            <h1>EOS Social Net</h1>
             <form onSubmit={handleLogin}>
                 <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />

@@ -15,6 +15,7 @@ CREATE TABLE posts (
   user_id INTEGER REFERENCES users (id),
   title VARCHAR(100),
   description TEXT
+  image VARCHAR(255)
 );
 
 -- Creating comments table

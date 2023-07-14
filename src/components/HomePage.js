@@ -13,10 +13,10 @@ const HomePage = () => {
     }
 
     return (
-        <div>
-            <h1>EOS Social Network</h1>
-            <p>Register or Login</p>
-            <div>
+        <div className='home-page'>
+            <h1>Welcome to EOS Social Net</h1>
+            <p>Please Register or Login</p>
+            <div className='home-buttons'>
                 <button
                     type="button"
                     className="btn btn-primary"

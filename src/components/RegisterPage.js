@@ -28,8 +28,8 @@ const RegisterPage = () => {
     };
 
     return (
-        <div>
-            <h1>Register</h1>
+        <div className='register-page'>
+            <h1>Register Account</h1>
             <form onSubmit={handleRegister}>
                 <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
                 <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
