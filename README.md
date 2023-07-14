@@ -51,7 +51,6 @@ Currently user can Register, Login, and make posts. The correct user_id is assoc
 ### TO DO
 5 - With the posts, you need to implement a simple CRUD with some requirements: 
 - a. Only the owner of the post can edit or delete the posts;
-- b. Allow adding an image to the post;
 - c. Save edits as a history;
 - d. Include a view counter for the posts;
 - e. Include a counter for likes and dislikes on the posts;
