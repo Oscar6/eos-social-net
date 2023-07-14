@@ -7,8 +7,8 @@ Used PERN stack to simplify the backend allowing me to create a full stack appli
 ## Install PostgreSQL and clone project
 Run `psql -U username -d myDataBase -a -f db-setup.sql` to create database or create database within PGAdmin
 
-## Packages used\
-dependencies": {
+## Packages used
+`dependencies": {
     "axios": "^1.4.0",
     "concurrently": "^8.2.0",
         - concurrently is used to start application and server concurrently within the same terminal and one command
@@ -18,10 +18,10 @@ dependencies": {
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.1",
     "react-scripts": "5.0.1"
-  }
+  }`
 
 Server dependencies
-dependencies": {
+`dependencies": {
     "bcrypt": "^5.1.0",
         - encrypts text such as passwords
     "cors": "^2.8.5",
@@ -29,7 +29,7 @@ dependencies": {
     "pg": "^8.11.1",
     "sequelize": "^6.32.1"
         - allows for data manipulation and validation
-  }
+  }`
 
 ### Setting up frontend
 
@@ -58,7 +58,7 @@ Currently user can Register, Login, and make posts. The correct user_id is assoc
     c. The owner of the post can also remove the comment;
     d. Add a marker to indicate if the comment was removed by the user or the owner of the post;
     e. Send an email to the owner of the post notifying them of a new comment on their post;
-    
+
 7 - Create a route that generates a report containing the posts with the following fields: a. Title;
     b. Number of comments; c. Number of views;
     d. Number of likes;
