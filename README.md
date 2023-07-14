@@ -6,6 +6,7 @@ Used PERN stack to simplify the backend allowing me to create a full stack appli
 
 ## Install PostgreSQL and clone project
 Run `psql -U username -d myDataBase -a -f db-setup.sql` to create database or create database within PGAdmin
+Change the DB password in the `server/index.js` file to match yours
 
 ## Packages used
 ```

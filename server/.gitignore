@@ -10,7 +10,6 @@
 
 # production
 /build
-/db/index.js
 
 # misc
 .DS_Store
